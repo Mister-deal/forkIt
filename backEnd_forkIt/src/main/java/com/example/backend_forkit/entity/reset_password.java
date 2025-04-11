@@ -3,6 +3,7 @@ package com.example.backend_forkit.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.UUID;
 
@@ -18,8 +19,11 @@ public class reset_password {
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id", nullable = false)
     private UUID id;
+
     private String token;
-    private Date created_at;
+
+    private LocalDateTime expirationDate;
+
     @OneToOne
     @JoinColumn(name = "user_id")
     private user user;
