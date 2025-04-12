@@ -15,11 +15,11 @@ import java.util.UUID;
 @Table(name = "guides")
 @Builder
 @AllArgsConstructor
-public class guide {
+public class Guide {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private UUID id;
+    private Long id;
 
     private String title;
 
@@ -30,12 +30,12 @@ public class guide {
 
     @ManyToOne
     @JoinColumn(name = "author_id", nullable = false)
-    private user author;
+    private User author;
 
     @OneToMany(mappedBy = "guide", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<comment> comments = new ArrayList<>();
+    private List<Comment> Comments = new ArrayList<>();
 
     @ManyToMany
     @JoinTable(name = "guide_restaurant", joinColumns = @JoinColumn(name = "guide_id"), inverseJoinColumns = @JoinColumn(name = "restaurant_id"))
-    private List<restaurant> restaurants = new ArrayList<>();
+    private List<Restaurant> Restaurants = new ArrayList<>();
 }

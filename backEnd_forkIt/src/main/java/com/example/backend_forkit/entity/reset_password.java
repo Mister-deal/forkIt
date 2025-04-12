@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.UUID;
 
 @Table
@@ -26,6 +25,6 @@ public class reset_password {
 
     @OneToOne
     @JoinColumn(name = "user_id")
-    private user user;
+    private User user;
 
 }

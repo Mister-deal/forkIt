@@ -13,11 +13,11 @@ import java.util.UUID;
 @Entity
 @Table(name = "comments")
 @Builder
-public class comment {
+public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private UUID id;
+    private Long id;
 
     @Column(columnDefinition = "TEXT", nullable = false)
     private String content;
@@ -28,13 +28,13 @@ public class comment {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private user user;
+    private User user;
 
     @ManyToOne
     @JoinColumn(name = "guide_id")
-    private guide guide;
+    private Guide guide;
 
     @ManyToOne
     @JoinColumn(name = "restaurant_id")
-    private restaurant restaurant;
+    private Restaurant restaurant;
 }

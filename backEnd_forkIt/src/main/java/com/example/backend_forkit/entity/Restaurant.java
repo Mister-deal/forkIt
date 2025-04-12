@@ -17,11 +17,11 @@ import java.util.UUID;
 @Table(name = "restaurants")
 @AllArgsConstructor
 @NoArgsConstructor
-public class restaurant {
+public class Restaurant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private UUID id;
+    private Long id;
 
     private String name;
 
@@ -39,8 +39,8 @@ public class restaurant {
 
     @ManyToOne
     @JoinColumn(name = "owner_id")
-    private user owner;
+    private User owner;
 
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<comment> comments = new ArrayList<>();
+    private List<Comment> Comments = new ArrayList<>();
 }
