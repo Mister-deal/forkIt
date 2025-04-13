@@ -9,7 +9,6 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 @Getter
 @Setter
@@ -39,7 +38,7 @@ public class Restaurant {
 
     @ManyToOne
     @JoinColumn(name = "owner_id")
-    private User owner;
+    private Member owner;
 
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Comment> Comments = new ArrayList<>();

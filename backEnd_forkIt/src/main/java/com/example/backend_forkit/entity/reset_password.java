@@ -25,6 +25,6 @@ public class reset_password {
 
     @OneToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private Member member;
 
 }

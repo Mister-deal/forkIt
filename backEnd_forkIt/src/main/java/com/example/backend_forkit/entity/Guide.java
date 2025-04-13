@@ -6,7 +6,6 @@ import lombok.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 @Getter
 @NoArgsConstructor
@@ -30,7 +29,7 @@ public class Guide {
 
     @ManyToOne
     @JoinColumn(name = "author_id", nullable = false)
-    private User author;
+    private Member author;
 
     @OneToMany(mappedBy = "guide", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Comment> Comments = new ArrayList<>();
