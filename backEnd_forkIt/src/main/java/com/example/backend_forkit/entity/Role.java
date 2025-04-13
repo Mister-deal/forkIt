@@ -1,6 +1,6 @@
 package com.example.backend_forkit.entity;
 
-public enum role {
+public enum Role {
     USER,
     OWNER,
     ADMIN

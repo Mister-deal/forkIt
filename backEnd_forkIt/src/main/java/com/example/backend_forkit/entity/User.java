@@ -18,7 +18,7 @@ import java.util.UUID;
 @Entity
 @Table(name ="users")
 @Builder
-public class User implements UserDetails {
+public class User  implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(columnDefinition = "UUID", updatable = false, nullable = false)
@@ -44,7 +44,7 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private String password;
 
-    private role role;
+    private Role role;
 
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
     private reset_password resetPassword;
@@ -58,10 +58,6 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Comment> Comments = new ArrayList<>();
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
-    }
 
     @Override
     public String toString() {
@@ -78,6 +74,11 @@ public class User implements UserDetails {
                 ", role=" + role +
                 ", resetPassword=" + resetPassword +
                 '}';
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
     }
 
     @Override
